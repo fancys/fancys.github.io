@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux服务器运行监控常用命令</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.fa879f49.css" as="style"><link rel="preload" href="/assets/js/app.decda4e1.js" as="script"><link rel="preload" href="/assets/js/2.c7196ed1.js" as="script"><link rel="preload" href="/assets/js/25.4c13bd48.js" as="script"><link rel="prefetch" href="/assets/js/10.232986a5.js"><link rel="prefetch" href="/assets/js/11.3da465b3.js"><link rel="prefetch" href="/assets/js/12.358c2d4f.js"><link rel="prefetch" href="/assets/js/13.348fae32.js"><link rel="prefetch" href="/assets/js/14.cdf5ca61.js"><link rel="prefetch" href="/assets/js/15.84dea7a2.js"><link rel="prefetch" href="/assets/js/16.89ea0c67.js"><link rel="prefetch" href="/assets/js/17.b27249ca.js"><link rel="prefetch" href="/assets/js/18.ef550f8f.js"><link rel="prefetch" href="/assets/js/19.83ff4bb0.js"><link rel="prefetch" href="/assets/js/20.8a0af974.js"><link rel="prefetch" href="/assets/js/21.9b04eece.js"><link rel="prefetch" href="/assets/js/22.c1de132e.js"><link rel="prefetch" href="/assets/js/23.6044a675.js"><link rel="prefetch" href="/assets/js/24.b36f2833.js"><link rel="prefetch" href="/assets/js/26.7990c62c.js"><link rel="prefetch" href="/assets/js/27.7e4e0969.js"><link rel="prefetch" href="/assets/js/28.a69751f4.js"><link rel="prefetch" href="/assets/js/29.797d18c2.js"><link rel="prefetch" href="/assets/js/3.f4a561dd.js"><link rel="prefetch" href="/assets/js/30.396418f9.js"><link rel="prefetch" href="/assets/js/31.3b92b239.js"><link rel="prefetch" href="/assets/js/32.613d1330.js"><link rel="prefetch" href="/assets/js/33.f99bec19.js"><link rel="prefetch" href="/assets/js/4.fbada138.js"><link rel="prefetch" href="/assets/js/5.81973988.js"><link rel="prefetch" href="/assets/js/6.54372601.js"><link rel="prefetch" href="/assets/js/7.dde4ec50.js"><link rel="prefetch" href="/assets/js/8.eadb2927.js"><link rel="prefetch" href="/assets/js/9.9f2c5e95.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fa879f49.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="linux服务器运行监控常用命令"><a href="#linux服务器运行监控常用命令" class="header-anchor">#</a> Linux服务器运行监控常用命令</h1> <h2 id="进程相关"><a href="#进程相关" class="header-anchor">#</a> 进程相关</h2> <p><em><strong>查看端口占用情况</strong></em> <code>lsof -i:8080</code>
+或者
+<code>netstat -ano | grep 8080</code></p> <h3 id="cpu"><a href="#cpu" class="header-anchor">#</a> cpu</h3> <h3 id="磁盘"><a href="#磁盘" class="header-anchor">#</a> 磁盘</h3> <h3 id="网络"><a href="#网络" class="header-anchor">#</a> 网络</h3> <p><em><strong>打开端口</strong></em>
+1、查看防火墙状态</p> <p><code>firewall-cmd --state</code>
+2、如果防火墙关闭，就启动
+<code>systemctl start firewalld.service</code></p> <p>3、开发端口,以8080端口为例
+<code>firewall-cmd --zone=public --add-port=8080/tcp --permanent</code>
+说明：
+--zone=public：表示作用域为公共的；
+--add-port=8080/tcp：添加tcp协议的端口8080；
+--permanent：永久生效，如果没有此参数，则只能维持当前服务生命周期内，重新启动后失效；</p> <p>4、重启防火墙
+<code>systemctl restart firewalld.service</code></p> <p>5、输入命令重新载入配置
+<code>firewall-cmd --reload</code></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.decda4e1.js" defer></script><script src="/assets/js/2.c7196ed1.js" defer></script><script src="/assets/js/25.4c13bd48.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Centos安装开发环境</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.fa879f49.css" as="style"><link rel="preload" href="/assets/js/app.decda4e1.js" as="script"><link rel="preload" href="/assets/js/2.c7196ed1.js" as="script"><link rel="preload" href="/assets/js/27.7e4e0969.js" as="script"><link rel="prefetch" href="/assets/js/10.232986a5.js"><link rel="prefetch" href="/assets/js/11.3da465b3.js"><link rel="prefetch" href="/assets/js/12.358c2d4f.js"><link rel="prefetch" href="/assets/js/13.348fae32.js"><link rel="prefetch" href="/assets/js/14.cdf5ca61.js"><link rel="prefetch" href="/assets/js/15.84dea7a2.js"><link rel="prefetch" href="/assets/js/16.89ea0c67.js"><link rel="prefetch" href="/assets/js/17.b27249ca.js"><link rel="prefetch" href="/assets/js/18.ef550f8f.js"><link rel="prefetch" href="/assets/js/19.83ff4bb0.js"><link rel="prefetch" href="/assets/js/20.8a0af974.js"><link rel="prefetch" href="/assets/js/21.9b04eece.js"><link rel="prefetch" href="/assets/js/22.c1de132e.js"><link rel="prefetch" href="/assets/js/23.6044a675.js"><link rel="prefetch" href="/assets/js/24.b36f2833.js"><link rel="prefetch" href="/assets/js/25.4c13bd48.js"><link rel="prefetch" href="/assets/js/26.7990c62c.js"><link rel="prefetch" href="/assets/js/28.a69751f4.js"><link rel="prefetch" href="/assets/js/29.797d18c2.js"><link rel="prefetch" href="/assets/js/3.f4a561dd.js"><link rel="prefetch" href="/assets/js/30.396418f9.js"><link rel="prefetch" href="/assets/js/31.3b92b239.js"><link rel="prefetch" href="/assets/js/32.613d1330.js"><link rel="prefetch" href="/assets/js/33.f99bec19.js"><link rel="prefetch" href="/assets/js/4.fbada138.js"><link rel="prefetch" href="/assets/js/5.81973988.js"><link rel="prefetch" href="/assets/js/6.54372601.js"><link rel="prefetch" href="/assets/js/7.dde4ec50.js"><link rel="prefetch" href="/assets/js/8.eadb2927.js"><link rel="prefetch" href="/assets/js/9.9f2c5e95.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fa879f49.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="centos安装开发环境"><a href="#centos安装开发环境" class="header-anchor">#</a> Centos安装开发环境</h1> <h2 id="java环境安装"><a href="#java环境安装" class="header-anchor">#</a> java环境安装</h2> <h3 id="jdk安装"><a href="#jdk安装" class="header-anchor">#</a> jdk安装</h3> <p>参考<a href="/linux/install/Centos安装jdk.html">Centos安装jdk</a></p> <h3 id="git安装"><a href="#git安装" class="header-anchor">#</a> git安装</h3> <p>进入下载目录
+<code>cd /soft</code></p> <p>下载新版本git
+<code>wget https://www.kernel.org/pub/software/scm/git/git-2.9.5.tar.gz</code></p> <p>解压
+<code>tar -xzvf git-2.9.5.tar.gz -C /usr/local</code></p> <p>安装
+<code>cd /usr/local/git-2.9.5</code></p> <p>编译git
+编译前安装
+<code>curl</code> <code>yum install -y curl-devel</code></p> <p>1、<code>make configure</code></p> <p>2、<code>./configure --prefix=/usr/local/git</code></p> <p>3、<code>make prefix=/usr/local/git</code> <strong>编译过程如果报错，一般是缺少依赖包，使用yum安装相应包即可</strong></p> <p>配置环境变量
+<code>echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/profile</code></p> <p>让配置文件生效
+<code>source /etc/profile</code></p> <p>检查版本
+<code>git --version</code></p> <h3 id="maven安装"><a href="#maven安装" class="header-anchor">#</a> maven安装</h3> <p>下载maven包
+<code>wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz</code></p> <p>解压并移到usr/local
+<code>tar -xzvf apache-maven-3.6.2-bin.tar.gz -C /usr/local</code></p> <p>重命名
+<code>mv apache-maven-3.6.2-bin.tar.gz maven3</code></p> <p>配置环境变量
+<code>echo &quot;export PATH=$PATH:/usr/local/maven3/bin&quot; &gt;&gt; /etc/profile</code></p> <h2 id="前端环境安装"><a href="#前端环境安装" class="header-anchor">#</a> 前端环境安装</h2></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.decda4e1.js" defer></script><script src="/assets/js/2.c7196ed1.js" defer></script><script src="/assets/js/27.7e4e0969.js" defer></script>
+  </body>
+</html>

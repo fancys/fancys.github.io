@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linxu 下关于IO操作命令</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.fa879f49.css" as="style"><link rel="preload" href="/assets/js/app.decda4e1.js" as="script"><link rel="preload" href="/assets/js/2.c7196ed1.js" as="script"><link rel="preload" href="/assets/js/19.83ff4bb0.js" as="script"><link rel="prefetch" href="/assets/js/10.232986a5.js"><link rel="prefetch" href="/assets/js/11.3da465b3.js"><link rel="prefetch" href="/assets/js/12.358c2d4f.js"><link rel="prefetch" href="/assets/js/13.348fae32.js"><link rel="prefetch" href="/assets/js/14.cdf5ca61.js"><link rel="prefetch" href="/assets/js/15.84dea7a2.js"><link rel="prefetch" href="/assets/js/16.89ea0c67.js"><link rel="prefetch" href="/assets/js/17.b27249ca.js"><link rel="prefetch" href="/assets/js/18.ef550f8f.js"><link rel="prefetch" href="/assets/js/20.8a0af974.js"><link rel="prefetch" href="/assets/js/21.9b04eece.js"><link rel="prefetch" href="/assets/js/22.c1de132e.js"><link rel="prefetch" href="/assets/js/23.6044a675.js"><link rel="prefetch" href="/assets/js/24.b36f2833.js"><link rel="prefetch" href="/assets/js/25.4c13bd48.js"><link rel="prefetch" href="/assets/js/26.7990c62c.js"><link rel="prefetch" href="/assets/js/27.7e4e0969.js"><link rel="prefetch" href="/assets/js/28.a69751f4.js"><link rel="prefetch" href="/assets/js/29.797d18c2.js"><link rel="prefetch" href="/assets/js/3.f4a561dd.js"><link rel="prefetch" href="/assets/js/30.396418f9.js"><link rel="prefetch" href="/assets/js/31.3b92b239.js"><link rel="prefetch" href="/assets/js/32.613d1330.js"><link rel="prefetch" href="/assets/js/33.f99bec19.js"><link rel="prefetch" href="/assets/js/4.fbada138.js"><link rel="prefetch" href="/assets/js/5.81973988.js"><link rel="prefetch" href="/assets/js/6.54372601.js"><link rel="prefetch" href="/assets/js/7.dde4ec50.js"><link rel="prefetch" href="/assets/js/8.eadb2927.js"><link rel="prefetch" href="/assets/js/9.9f2c5e95.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fa879f49.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="linxu-下关于io操作命令"><a href="#linxu-下关于io操作命令" class="header-anchor">#</a> Linxu 下关于IO操作命令</h1> <h2 id="文件夹"><a href="#文件夹" class="header-anchor">#</a> 文件夹</h2> <ul><li><p>新建<code>document</code>文件夹
+<code>mkdir document</code></p></li> <li><p>删除空目录document
+<code>rmdir document</code></p></li> <li><p>删除文件夹
+<code>rm -rf 文件夹名称</code> <code>-r</code> 表示向下递归，
+<code>-f</code> 表示强删，不需询问确认</p></li> <li><p>重命名与剪切</p></li></ul> <p>剪切文件夹 <code>mv 文件名 移动目的地文件名</code>
+重命名     <code>mv 文件名 修改后的文件名</code></p> <h2 id="文件"><a href="#文件" class="header-anchor">#</a> 文件</h2> <ul><li><p>查找当前目录下，文件名以ava开头的文件
+<code>find . -name ava\*</code></p></li> <li><p>查看文件profile的内容
+<code>cat profile</code></p></li> <li><p>修改文件日期
+<code>touch filename</code>
+如果文件不存在，则新建文件</p></li></ul> <h3 id="拷贝"><a href="#拷贝" class="header-anchor">#</a> 拷贝</h3> <p><code>cp 源文件路径 目标目录</code></p> <h3 id="压缩与解压"><a href="#压缩与解压" class="header-anchor">#</a> 压缩与解压</h3> <p>常见的压缩格式</p> <ul><li>zip</li> <li>gz</li> <li>bz2</li> <li>tar.gz</li> <li>tar.bz2</li></ul> <p>如使用压缩命令未找到，需先安装压缩命令
+如安装zip命令：<code>yum -y install zip</code></p> <p><em>zip压缩解压</em></p> <ul><li>压缩文件
+<code>zip 压缩文件名 源文件</code></li> <li>压缩目录
+<code>zip -r 压缩文件名 源目录</code></li> <li>解压
+<code>unzip 压缩文件名</code></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.decda4e1.js" defer></script><script src="/assets/js/2.c7196ed1.js" defer></script><script src="/assets/js/19.83ff4bb0.js" defer></script>
+  </body>
+</html>

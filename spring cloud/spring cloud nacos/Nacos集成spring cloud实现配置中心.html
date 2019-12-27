@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nacos基础spring cloud实现配置中心</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.fa879f49.css" as="style"><link rel="preload" href="/assets/js/app.decda4e1.js" as="script"><link rel="preload" href="/assets/js/2.c7196ed1.js" as="script"><link rel="preload" href="/assets/js/3.f4a561dd.js" as="script"><link rel="prefetch" href="/assets/js/10.232986a5.js"><link rel="prefetch" href="/assets/js/11.3da465b3.js"><link rel="prefetch" href="/assets/js/12.358c2d4f.js"><link rel="prefetch" href="/assets/js/13.348fae32.js"><link rel="prefetch" href="/assets/js/14.cdf5ca61.js"><link rel="prefetch" href="/assets/js/15.84dea7a2.js"><link rel="prefetch" href="/assets/js/16.89ea0c67.js"><link rel="prefetch" href="/assets/js/17.b27249ca.js"><link rel="prefetch" href="/assets/js/18.ef550f8f.js"><link rel="prefetch" href="/assets/js/19.83ff4bb0.js"><link rel="prefetch" href="/assets/js/20.8a0af974.js"><link rel="prefetch" href="/assets/js/21.9b04eece.js"><link rel="prefetch" href="/assets/js/22.c1de132e.js"><link rel="prefetch" href="/assets/js/23.6044a675.js"><link rel="prefetch" href="/assets/js/24.b36f2833.js"><link rel="prefetch" href="/assets/js/25.4c13bd48.js"><link rel="prefetch" href="/assets/js/26.7990c62c.js"><link rel="prefetch" href="/assets/js/27.7e4e0969.js"><link rel="prefetch" href="/assets/js/28.a69751f4.js"><link rel="prefetch" href="/assets/js/29.797d18c2.js"><link rel="prefetch" href="/assets/js/30.396418f9.js"><link rel="prefetch" href="/assets/js/31.3b92b239.js"><link rel="prefetch" href="/assets/js/32.613d1330.js"><link rel="prefetch" href="/assets/js/33.f99bec19.js"><link rel="prefetch" href="/assets/js/4.fbada138.js"><link rel="prefetch" href="/assets/js/5.81973988.js"><link rel="prefetch" href="/assets/js/6.54372601.js"><link rel="prefetch" href="/assets/js/7.dde4ec50.js"><link rel="prefetch" href="/assets/js/8.eadb2927.js"><link rel="prefetch" href="/assets/js/9.9f2c5e95.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fa879f49.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Nacos基础spring cloud实现配置中心</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#nacos入门" class="sidebar-link">Nacos入门</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#添加maven依赖" class="sidebar-link">添加maven依赖</a></li><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#维护配置信息" class="sidebar-link">维护配置信息</a></li><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#配置相关信息" class="sidebar-link">配置相关信息</a></li><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#新建配置信息" class="sidebar-link">新建配置信息</a></li><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#读取配置文件" class="sidebar-link">读取配置文件</a></li></ul></li><li><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#nacos基本概念" class="sidebar-link">Nacos基本概念</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#命名空间、分组、dataid" class="sidebar-link">命名空间、分组、dataid</a></li><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#版本管理" class="sidebar-link">版本管理</a></li></ul></li><li><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#配置管理" class="sidebar-link">配置管理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#配置动态刷新" class="sidebar-link">配置动态刷新</a></li><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#多文件加载配置" class="sidebar-link">多文件加载配置</a></li><li class="sidebar-sub-header"><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#共享配置文件" class="sidebar-link">共享配置文件</a></li></ul></li><li><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#总结" class="sidebar-link">总结</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/spring%20cloud/spring%20cloud%20nacos/Nacos%E9%9B%86%E6%88%90spring%20cloud%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.html#参考" class="sidebar-link">参考</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nacos基础spring-cloud实现配置中心"><a href="#nacos基础spring-cloud实现配置中心" class="header-anchor">#</a> Nacos基础spring cloud实现配置中心</h1> <h2 id="nacos入门"><a href="#nacos入门" class="header-anchor">#</a> Nacos入门</h2> <p>新建spring boot项目，项目名称<code>nacos-config</code>，并添加一个<code>User</code>对象，包含<code>name</code>和<code>age</code>属性。</p> <h3 id="添加maven依赖"><a href="#添加maven依赖" class="header-anchor">#</a> 添加maven依赖</h3> <p>pom添加maven管理</p> <div class="language-maven extra-class"><pre class="language-text"><code>&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;0.2.1.RELEASE&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</code></pre></div><p>然后添加<code>nacos-config</code>maven依赖。</p> <div class="language-maven extra-class"><pre class="language-text"><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></div><p>或者直接添加<code>nacos-config</code>依赖</p> <div class="language-maven extra-class"><pre class="language-text"><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
+    &lt;version&gt;0.2.1.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></div><h3 id="维护配置信息"><a href="#维护配置信息" class="header-anchor">#</a> 维护配置信息</h3> <p>在nacos管理界面中添加如下配置：
+<img src="/assets/img/nacos-bin.bf3e989a.jpg" alt=""></p> <h3 id="配置相关信息"><a href="#配置相关信息" class="header-anchor">#</a> 配置相关信息</h3> <p><em><strong>注意</strong></em>：配置文件应为：<code>bootstrap</code>,而不能为<code>application</code>。因为spring boot(spring cloud)首先加载的配置文件为<code>bootstrap</code>。</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
+      <span class="token key atrule">config</span><span class="token punctuation">:</span>
+        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 127.0.0.1<span class="token punctuation">:</span><span class="token number">8848</span>
+        <span class="token key atrule">file-extension</span><span class="token punctuation">:</span> your configuration format
+        <span class="token key atrule">group</span><span class="token punctuation">:</span> yourgourpname
+        <span class="token key atrule">prefix</span><span class="token punctuation">:</span> yourdataidname <span class="token comment">#此处名称应与在nacos创建的配置文件名称一致，如不维护默认取项目名称</span>
+</code></pre></div><h3 id="新建配置信息"><a href="#新建配置信息" class="header-anchor">#</a> 新建配置信息</h3> <p>在<code>Nacos</code>管理界面中打开<code>配置列表</code>，新建一个配置文件。
+<img src="/assets/img/nacos-config-add.630f2390.jpg" alt=""> <em><strong>注意</strong></em>：</p> <ul><li>Nacos暂只支持<code>yaml</code>和<code>properties</code>格式。</li> <li>Data ID为配置文件名，group为配置文件组。</li></ul> <h3 id="读取配置文件"><a href="#读取配置文件" class="header-anchor">#</a> 读取配置文件</h3> <p>新建<code>UserController</code>，通过<code>@Value</code>注解获取配置信息。</p> <p><strong>注意</strong> 通过<code>@NacosPropertySource</code>和<code>@NacosValue</code>也可实现获取配置信息，如果采用了<code>Spring Cloud</code>，为了与其他配置中心兼容，推荐采用<code>@Value</code>注解。</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;${user.name}&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;${user.age}&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;user&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">User</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">User</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> user<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>通过api查询配置结果:
+<img src="/assets/img/nacos-config-demo1.4eb5d36f.jpg" alt=""></p> <h2 id="nacos基本概念"><a href="#nacos基本概念" class="header-anchor">#</a> Nacos基本概念</h2> <h3 id="命名空间、分组、dataid"><a href="#命名空间、分组、dataid" class="header-anchor">#</a> 命名空间、分组、dataid</h3> <p>在<code>nacos-config</code>中有三个非常重要的概念：namespace、group及dataid。
+<a href="../../img/nacos-config-manage.jpg"></a></p> <ul><li><p>dataid：配置文件名称，同一<code>group</code>下必须唯一。匹配规则为：<code>${spring.cloud.nacos.config.prefix}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}</code></p></li> <li><p>group: 配置组，不同<code>group</code>中可包含相同名称的<code>dataid</code>使用上比较灵活，可以按系统分组，也可按配置类型分组。</p></li> <li><p>namespace：命名空间，具有数据隔离性，可以按不同租户进行隔离；也可按不同环境进行隔离，如：开发环境、测试环境、生产环境。</p></li></ul> <h3 id="版本管理"><a href="#版本管理" class="header-anchor">#</a> 版本管理</h3> <p>打开<code>Nacos</code>管理界面<code>历史版本</code>菜单：输入<code>dataid</code>和<code>group</code>信息后可搜索最近30天更改记录。也可对指定配置信息进行回滚操作。
+<img src="/assets/img/nacos-config-history.d53fec37.jpg" alt=""></p> <h2 id="配置管理"><a href="#配置管理" class="header-anchor">#</a> 配置管理</h2> <h3 id="配置动态刷新"><a href="#配置动态刷新" class="header-anchor">#</a> 配置动态刷新</h3> <p>在需要动态刷新的类上加上注解<code>@RefreshScope</code>。
+此处注意，要保证<code>spring boot</code>版本与<code>spring cloud</code>版本想匹配；<code>spring cloud alibaba</code>版本与<code>spring boot</code>版本匹配。否则可能无法动态刷新配置内容。</p> <p>| <em><strong>tips</strong></em>：如果未动态刷新配置内容，可引入<code>spring boot</code>版本对应的<code>spring cloud</code>版本。</p> <p>然后在<code>Nacos</code>管理界面更改配置内容后并发布。</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">user</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> 张三
+    <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">23</span>
+</code></pre></div><p>此时可重新调用api获取<code>user</code>信息：
+<img src="/assets/img/nacos-config-refresh.c124ae4b.jpg" alt=""></p> <h3 id="多文件加载配置"><a href="#多文件加载配置" class="header-anchor">#</a> 多文件加载配置</h3> <p>在项目实施微服务化后，我们可能需要不同服务的配置内容抽离出公共部分，实现统一管理。</p> <p>我们在<code>Nacos</code>管理界面增加一个日志配置文件。
+<img src="/assets/img/log1.4b3d171e.jpg" alt=""></p> <p>修改<code>bootstrap.yml</code>配置内容：</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> nacos<span class="token punctuation">-</span>config
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
+      <span class="token key atrule">config</span><span class="token punctuation">:</span>
+        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 127.0.0.1<span class="token punctuation">:</span><span class="token number">8848</span>
+        <span class="token key atrule">prefix</span><span class="token punctuation">:</span> nacos<span class="token punctuation">-</span>config
+        <span class="token key atrule">file-extension</span><span class="token punctuation">:</span> yaml
+        <span class="token key atrule">group</span><span class="token punctuation">:</span> github
+
+        ext<span class="token punctuation">-</span>config<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>.dataId<span class="token punctuation">:</span> log1.yaml
+        ext<span class="token punctuation">-</span>config<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>.group<span class="token punctuation">:</span> github
+        ext<span class="token punctuation">-</span>config<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>.refresh<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre></div><p>添加<code>LogController</code></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RefreshScope</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LogController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;${log.level}&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> logLevel<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;${log.path}&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> logPath<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;log&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getLogLevel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;level:&quot;</span><span class="token operator">+</span> logLevel<span class="token operator">+</span><span class="token string">&quot;;path:&quot;</span><span class="token operator">+</span>logPath<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>浏览结果:
+<img src="/assets/img/log-api.1dcb8a75.jpg" alt=""></p> <h3 id="共享配置文件"><a href="#共享配置文件" class="header-anchor">#</a> 共享配置文件</h3> <p>下面以<code>shared-dataids</code>实现配置共享配置文件。</p> <p>1、将<code>ext-config</code>配置方式注释。添加<code>shared-dataids</code>和
+<code>refreshable-dataids</code>。</p> <div class="language-yml extra-class"><pre class="language-yml"><code>    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
+      <span class="token key atrule">config</span><span class="token punctuation">:</span>
+        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 127.0.0.1<span class="token punctuation">:</span><span class="token number">8848</span>
+        <span class="token key atrule">prefix</span><span class="token punctuation">:</span> nacos<span class="token punctuation">-</span>config
+        <span class="token key atrule">file-extension</span><span class="token punctuation">:</span> yaml
+        <span class="token key atrule">group</span><span class="token punctuation">:</span> github
+        <span class="token key atrule">shared-dataids</span><span class="token punctuation">:</span> log.yaml
+        <span class="token key atrule">refreshable-dataids</span><span class="token punctuation">:</span> log.yaml
+
+<span class="token comment">#        ext-config[0].dataId: log1.yaml</span>
+<span class="token comment">#        ext-config[0].group: github</span>
+<span class="token comment">#        ext-config[0].refresh: true</span>
+</code></pre></div><p>2、新建log.yml，配置文件，注意<code>gourp</code>为默认值。</p> <p><img src="/assets/img/log-default-group.fbdbf1ac.jpg" alt=""></p> <p>再次调用api查看结果，发现结果一致。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <ul><li>nacos config读取配置主要有以下三种方式：</li></ul> <p>A：通过<code>spring.cloud.nacos.config.shared-dataids</code>方式；</p> <p>B：通过<code>spring.cloud.nacos.config.ext-config</code>方式</p> <p>C：通过<code>spring.cloud.nacos.config.prefix</code>方式</p> <p>如果同时采用多个方式获取配置内容，配置文件包含相同key的话，优先级为：C-&gt;B-&gt;A。</p> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <p><a href="https://nacos.io/zh-cn/blog/index.html" target="_blank" rel="noopener noreferrer">Nacos博客<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.decda4e1.js" defer></script><script src="/assets/js/2.c7196ed1.js" defer></script><script src="/assets/js/3.f4a561dd.js" defer></script>
+  </body>
+</html>
